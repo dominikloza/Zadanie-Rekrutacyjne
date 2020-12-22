@@ -1,13 +1,25 @@
 @import '~mdb-ui-kit/css/mdb.min.css';
 
 body {
-  background-image: url("../img/city.jpg");
+  background-image: url("https://www.estidia.eu/wp-content/uploads/2018/04/Savin-NY-Website-Background-Web.jpg");
   background-size: cover;
+
   .main {
     width: 50vw;
     margin: 0 auto;
+
     .content {
       width: 1300px;
+
+      ul {
+        width: 60%;
+      }
+
+      i {
+        margin-left: 20px;
+        color: red;
+        cursor: pointer;
+      }
     }
   }
 }

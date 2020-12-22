@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-  <title>MDB Webpack Starter</title>
+  <title>List of Products</title>
   <!-- Favicon -->
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon"/>
   <!-- Font Awesome -->
@@ -23,10 +23,10 @@
 <body>
 <!-- Start your project here-->
 <div class="container">
-  <div class=" main d-flex justify-content-center align-items-center" style="height: 100vh">
-    <div class="d-flex flex-column align-items-center w-75">
-      <h1 class="text-center text-black mb-5">Add new Product<br/> to Your List</h1>
-      <form class="w-75 mb-5">
+  <div class=" main d-flex justify-content-center align-items-center w-100">
+    <div class="d-flex flex-column align-items-center w-100">
+      <h1 class="text-center text-black mb-5 mt-5">Add new Product<br/> to Your List</h1>
+      <form class="mb-5 d-flex flex-column align-items-center">
         <div class="form-outline mb-4">
           <input type="text" id="name" class="form-control"/>
           <label class="form-label" for="name">Name of Product</label>
@@ -55,7 +55,7 @@
             <label class="form-check-label" for="type_pcs">Pieces </label>
           </div>
         </div>
-        <div>
+        <div class="form-label w-100">
           <label for="category" class="text-black mb-2">Select Product Category</label>
           <select
             class="form-select mb-4"
@@ -70,9 +70,10 @@
             <option>Others</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary btn-block" id="button">Add Product</button>
+        <button type="submit" class="btn btn-primary btn-block w-75 mb-5" id="button">Add Product</button>
+        <h2>Amount of all products: <span id="counter">0</span></h2>
       </form>
-      <div class="content d-flex justify-content-around"></div>
+      <div class="content d-flex justify-content-start w-100 flex-wrap"></div>
     </div>
   </div>
 </div>

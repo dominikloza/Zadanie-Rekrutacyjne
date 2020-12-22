@@ -1,5 +1,6 @@
 import * as mdb from 'mdb-ui-kit';
 import { List } from './ListOfProducts';
+import { deleteItem, renderList, saveListToLocalStorage } from './LocalStorage';
 
 const name = document.querySelector('#name');
 const amount = document.querySelector('#amount');
@@ -14,6 +15,8 @@ const data = {
   type_amount: '',
   category: '',
 };
+
+renderList();
 
 name.addEventListener('input', (event) => {
   data.name = event.target.value;
@@ -40,9 +43,32 @@ category.addEventListener('change', (event) => {
   console.log(data.category);
 });
 
-button.addEventListener("click", (event) => {
+button.addEventListener('click', (event) => {
   event.preventDefault();
   List.addProduct(data.name, data.amount, data.type_amount, data.category);
+  const newLocal = {
+    category: data.category,
+    products: `${data.name} - ${data.amount} ${data.type_amount}`,
+  };
+  saveListToLocalStorage(newLocal);
+  document.querySelector('h2').firstChild.innerText = amount;
+  document.querySelector('form').reset();
+});
+
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id === 'delete') {
+    deleteItem(
+      e.target.parentElement.parentElement.previousSibling.innerText,
+      e.target.parentElement.innerText
+    );
+    if (e.target.parentElement.parentElement.children.length - 1 === 0) {
+      console.log(e.target.parentElement.parentElement);
+      e.target.parentElement.parentElement.parentElement.remove();
+      e.target.parentElement.remove();
+    } else {
+      e.target.parentElement.remove();
+    }
+  }
 });
 
 export default {
